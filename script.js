@@ -44,7 +44,7 @@ class MinimumCoinChange {
         let sortedResult = this.convertToPyramidArray(results);
 
         let case2Div = document.querySelector('div.case2');
-        let case2Header =  document.querySelector('h1.case2_header span');
+        let case2Header =  document.querySelector('h1.case2_header>span');
         case2Header.innerHTML = '#' + amount;
         
 
