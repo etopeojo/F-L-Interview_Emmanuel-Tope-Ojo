@@ -14,8 +14,10 @@
         function generateCoins($amount) {
              $finalResult = [];
              $totalAmount = $amount;
+             sort($this->coins);
 
             for($i = 0; $i < $this->numCoinType; $i++){
+                
                 $currentTypeValue = $this->coins[$i];
 
                 $typeCount = floor($totalAmount / $currentTypeValue);
