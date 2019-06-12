@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="case1">
+        <h1 class="case1_header">Answer to the Promise Question</h1>
+        <pre style="font-family: 'Lucida Sans', 'Lucida Sans Regular';">
+                Logically, using this implementation promises to drastically reduce web latency especially where 
+                fetching information from the network can prove very slow. Although answering the question about whether
+                this implementation should be used is actually a question about tradeoffs...
+                
+                With this implementation, the user will always get data loaded from the cache since that promise ideally should be resolved first, 
+                and thus we are embracing a tradeoff of the user getting a stale content eventually if the cache is not synced(or up to date) with the 
+                resource from the network (DB).
+                And also, there is a risk of the promise getting shortcircuited when fetchFromNetwork promise is rejected before the cache promise is resolved, 
+                which will leave our users with no resource to work with or get displayed which is bad.
+                
+                Although, to manage the tradeoffs, it is better for us to use Promise.any because this will return the first fulfilled promise 
+                regardless of the other rejected promises (even if the rejected promise was the first to get completed).
+                Also, to extend this further, an expiration can be placed for the resources on the cache to ensure that periodically, the cache promise is rejected, 
+                and thus forces us to wait for the updated resource from the network (DB).
+        </pre>
+    </div>
+
+    <hr>
+
+    <div class="case2">
+        <h1 class="case2_header">Coin Generator for amount <span></span></h1>
+    </div>
+
+    <a href="script.php" target="_blank">Link to the PHP version of this solution</a>
+
+    <script src="script.js"></script>
+    <!-- <script src="promiserace.js"></script> -->
+</body>
+</html>
